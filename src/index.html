@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name = " viewport "
+          content = " width = device-width, user-scaleable = no, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0 " >
+    <meta  http-equiv = " X-UA-Compatible "  content = " ie = edge ">
+    <title>7h3 5h0p</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link  rel="stylesheet" href="css/main.css ">
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app__header header">
+      <a href="#"><img class="name-magazin"src="img/the_shop_logo.svg" alt="Shop logo"></a>
+      <a href="http://oggettoweb.ru/" target="_blank"><img class="oggetto-logo"src="img/oggetto_logo.svg" alt="Oggetto logo"></a>
+      <span class="header__contact">+7(812)2*12*85*06</span>
+      </div>
+
+      <div class="app__navigation navigation">
+        <span class="navigation__current-page current-page">LISP</span>
+        <a class="navigation__link link_red"href ="">OCaml</a>
+        <a class="navigation__link link_red"href ="">JavaScript</a>
+        <a class="navigation__link link_red"href ="">Rython</a>
+        <a class="navigation__link link_red"href="">PHP</a>
+        <input class="value" type="text" name="" value="" placeholder="">
+      </div>
+
+      <div class="app__page page">
+        <div class="page__clothes clothes">
+          <a class="clothes__link link_red" href ="">LISP/</a>
+          <a class="clothes__link link_red" href ="">Одежда/</a>
+          <span class="clothes__link">Футболки</span>
+        </div>
+        <div class="page__product product">
+          <div class="product__photo">
+            <img id="tshirt-white" class="photo none" src="../img/tshirts/tshirt_white.jpg">
+            <img id="tshirt-green" class="photo none" src="../img/tshirts/tshirt_green.jpg">
+            <img id="tshirt-yellow" class="photo none" src="../img/tshirts/tshirt_yellow.jpg">
+          </div>
+          <div class="product__product-description product-description">
+            <span class="caption">Футболка Alien technology</span>
+            <span>Состав: 100% хлопок,динамическая типизация,польская нотация.Производство: Россия</span>
+            <span class="price">1500P</span>
+            <span>Размер:</span>
+            <div class="product-description__variables variables">
+              <div class="variables__variant variant">S</div>
+              <div class="variables__variant variant variant_active">M</div>
+              <div class="variables__variant variant">L</div>
+            </div>
+            <span>Цвет:</span>
+            <div class="product-description__variables variables">
+              <button onclick="useWhiteColor()" id="tshirt-white-variable-button" type="button" name="tshirt-white-variable-button" class="variables__variant variant variant_white"></button>
+              <button onclick="useGreenColor()" id="tshirt-green-variable-button" type="button" name="tshirt-green-variable-button" class="variables__variant variant variant_green"></button>
+              <button onclick="useYellowColor()" id="tshirt-yellow-variable-button" type="button" name="tshirt-yellow-variable-button" class="variables__variant variant variant_yellow"></button>
+            </div>
+            <button class="buy">Купить</button>
+            <div class="product-description__postpound-on-later postpound-on-later">
+              <img class="heart"src="/img/icons/heart.svg">
+              <a class="later" href>Отложить на потом</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app__footer footer">
+        <div class="footer__navigation-menu navigation-menu">
+          <div class="navigation-menu__service service">
+            <span class=" service__caption caption_small">Сервис и поддержка</span>
+            <div class="wrapper_row">
+              <div class="service__row row">
+                <a href="#" сlass="footer_link">Как сделать заказ</a>
+                <a href="#" сlass="footer_link">Возврат товара</a>
+                <a href="#" сlass="footer_link">Публичная оферта</a>
+                <a href="#" сlass="footer_link">Доставка</a>
+              </div>
+              <div class="service__row row">
+                <a href="#" сlass="footer_link">Способы оплаты</a>
+                <a href="#" сlass="footer_link">Правила продажи</a>
+                <a href="#" сlass="footer_link">Возврат денежных средств</a>
+                <a href="#" сlass="footer_link">Вопросы и ответы</a>
+              </div>
+            </div>
+          </div>
+          <div class="navigation-menu__service service">
+            <span class=" service__caption caption_small">О компании</span>
+            <div class="wrapper_row">
+              <div class="service__row row">
+                <a href="#"сlass="link_footer">О нас</a>
+                <a href="#"сlass="link_footer">Контакты</a>
+                <a href="#"сlass="link_footer">Вакансии</a>
+                <a href="#"сlass="link_footer">Партнерам</a>
+              </div>
+              <div class="service__row row">
+                <a href="#" сlass="link_footer">Сертификаты</a>
+                <a href="#" сlass="link_footer">Преимущества</a>
+                <a href="#" сlass="link_footer">Наши скидки</a>
+              </div>
+            </div>
+          </div>
+          <div class="navigation-menu__service service">
+            <div class="pluses-of-the-company">
+              <img class="footer_icon"src="/img/icons/delivery.svg">
+              <span>Бесплатная доставка от 4000Р</span>
+            </div>
+            <div class="pluses-of-the-company">
+              <img class="footer_icon"src="/img/icons/heart.svg">
+              <span>Пробники в подарок при каждой покупке</span>
+            </div>
+            <div class="pluses-of-the-company">
+              <img class="footer_icon"src="/img/icons/cup.svg">
+              <span>Акции и подарки за покупку</span>
+            </div>
+          </div>
+          <div class="navigation-menu__social-networks social-networks">
+            <a class="a-social"href="#"><img class="social_link"src="/img/icons/facebook.svg"></a>
+            <a class="a-social"href="#"><img class="social_link"src="/img/icons/twitter.svg"></a>
+            <a class="a-social"href="#"><img class="social_link"src="/img/icons/instagram.svg"></a>
+          </div>
+        </div>
+        <hr class="line">
+        <div class="footer__copyright copyright">
+          <p>2005-2017 &#169 7р35рOp.ru-модный интернет-магазин одежды, обуви и аксессуаров.</p>
+          <p>Все права защищены.Доставка по всей России!</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
