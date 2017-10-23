@@ -180,11 +180,15 @@ html, body {
   text-decoration: none;
 
   &_yellow {
-    background-color: yellow;
+    background-color: #e3d95e;
   }
 
   &_green {
-    background-color: green;
+    background-color: #a5af96;
+  }
+
+  &_white {
+    background-color: #fffafb;
   }
 
   &_active {
@@ -238,7 +242,7 @@ html, body {
 }
 
 .value {
-  margin-left: 720px;
+  margin-left: 680px;
 }
 
 .footer {
@@ -246,7 +250,7 @@ html, body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 30px 80px 30px 80px;
+  padding: 30px 40px 30px 40px;
 
   &__navigation-menu {
     width: 100%;
@@ -271,13 +275,20 @@ html, body {
   align-items: flex-start;
 
   &__service {
-    width: calc((100% - 50px) / 3);
+    width: calc((100% - 13px) / 3);
     min-width: 240px;
   }
 
   &__social-networks {
     width: 50px;
   }
+}
+
+.copyright {
+  padding: 10px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
 }
 
 .service {
@@ -332,7 +343,7 @@ html, body {
 
 .line {
   color: gray;
-  margin: 50px 0 30px 0;
+  margin: 50px 60px 30px 60px;
 }
 
 
@@ -356,7 +367,7 @@ html, body {
     padding: 0 10px;
   }
   .copyright {
-    padding: 10px;
+    // padding: 10px;
   }
   .navigation-menu {
     display: flex;
