@@ -92,7 +92,7 @@ html, body {
   }
 
   &_footer {
-    text-decoration: none;
+
   }
 }
 
@@ -261,8 +261,8 @@ html, body {
   }
 
   &_icon {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
   }
 }
@@ -275,7 +275,7 @@ html, body {
   align-items: flex-start;
 
   &__service {
-    width: calc((100% - 13px) / 3);
+    // width: calc((100% - 13px) / 3);
     min-width: 240px;
   }
 
@@ -289,12 +289,15 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   overflow-x: hidden;
+  font-size: 12px;
 }
 
 .service {
   display: flex;
   flex-direction: column;
-  padding: 4px;
+  width: 326px;
+  height: 90px;
+  margin: 20px;
 }
 
 .caption_small {
@@ -308,18 +311,22 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 20px;
 }
 
 .a-social {
-  width: 30px;
-  height: 30px;
-  margin: 4px;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
 }
 
 .row {
+  margin: 0 5px;
   display: flex;
   flex-direction: column;
-  margin: 0 5px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  width: 100%;
 }
 
 .wrapper_row {
@@ -334,11 +341,12 @@ html, body {
   flex-direction: row;
   align-items: center;
   margin-bottom: 5px;
+  font-size: 12px;
 }
 
 .social_link {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .line {
@@ -347,9 +355,43 @@ html, body {
 }
 
 
+li {
+  margin-left: -40px;
 
+}
 
+.menu_link {
+  width: 185px;
+  text-decoration: none;
+  color: black;
+}
 
+.about_link {
+  width: 185px;
+  text-decoration: none;
+  color: black;
+}
+
+.navigation_link {
+  margin-left: 5px;
+  color: red;
+}
+
+.navigation_str {
+  margin-left: 100px;
+}
+
+.choice {
+   margin-left: 100px;
+}
+
+.clothes_link {
+  &::after {
+       content: '/';
+       display: inline-block;
+   }
+   color: red;
+}
 
 
 
@@ -381,6 +423,11 @@ html, body {
   .footer {
     padding: 10px;
   }
+}
 
-
+@media (max-width: 916px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
 }
