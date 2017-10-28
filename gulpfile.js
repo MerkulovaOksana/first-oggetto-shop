@@ -1,10 +1,11 @@
-const gulp = require('gulp');
-const less = require('gulp-less');
-const browserSync = require('browser-sync');
+const gulp         = require('gulp');
+const less         = require('gulp-less');
+const browserSync  = require('browser-sync');
 const autoprefixer = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');
 const ejs          = require('gulp-ejs');
 const gutil        = require('gulp-util');
+const sourcemaps   = require('gulp-sourcemaps');
 
 // Автоперезагрузка при изменении файлов в папке `dist`:
 // Принцип: меняем файлы в `/src`, они обрабатываются и переносятся в `dist` и срабатывает автоперезагрузка.
@@ -22,10 +23,23 @@ gulp.task('livereload', () => {
     });
 });
 
+
+
+ gulp.task('scripts-dist', function() {
+   gulp.src('js/**/*.js')
+    // .pipe(sourcemaps.init())
+    .pipe(concat('all.js'))
+    .pipe(uglify())
+    // .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'));
+});
+
 gulp.task('styles', () => {
     gulp.src('src/less/main.less')
+		    // .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(autoprefixer())
+				// .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
