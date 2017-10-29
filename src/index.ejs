@@ -21,8 +21,9 @@
       </div>
 
       <div class="app__navigation navigation">
-        <%
-        pagesList = [
+        <div class="app__navigation-link">
+          <%
+          pagesList = [
           {
             'isLink': false,
             'text': 'LISP'
@@ -47,20 +48,20 @@
             'text': 'PHP',
             'link' : '#'
           }
-        ]
-        %>
+          ]
+          %>
 
-        <%
-        pagesList.forEach(function(item) {
-          if (item.isLink == true) { %>
-            <a href="<%= item.link %>" class="navigation_link"><%= item.text %></a>
-          <% } else { %>
-            <span class="navigation_str"><%= item.text %></span>
-          <% } %>
-        <% }); %>
+          <%
+          pagesList.forEach(function(item) {
+            if (item.isLink == true) { %>
+              <a href="<%= item.link %>" class="navigation_link"><%= item.text %></a>
+              <% } else { %>
+                <span class="navigation_str"><%= item.text %></span>
+                <% } %>
+                <% }); %>
+        </div>
 
-
-        <input class="value" type="text" name="" value="" placeholder="">
+        <input id="searchInput" class="app__navigation-search" type="text" placeholder="Поиск">
       </div>
 
       <div class="app__page page">
@@ -100,28 +101,28 @@
             <img id="tshirt-green" class="photo none" src="./img/tshirts/tshirt_green.jpg">
             <img id="tshirt-yellow" class="photo none" src="./img/tshirts/tshirt_yellow.jpg">
           </div>
-          <div class="product__product-description product-description">
-            <span class="caption">Футболка Alien technology</span>
+          <form id="product-form" name="product-form" class="product__product-description product-description">
+            <span id="title-of-product" class="caption">Футболка Alien technology</span>
             <span>Состав: 100% хлопок,динамическая типизация,польская нотация.Производство: Россия</span>
-            <span class="price">1500P</span>
+            <span id="price-of-product" class="price">1500P</span>
             <span>Размер:</span>
             <div class="product-description__variables variables">
-              <div class="variables__variant variant">S</div>
-              <div class="variables__variant variant variant_active">M</div>
-              <div class="variables__variant variant">L</div>
+              <button id="tshirt-s-variable-button" type="button" name="tshirt-s-variable-button" class="variables__variant variant" value="S">S</button>
+              <button id="tshirt-m-variable-button" type="button" name="tshirt-m-variable-button" class="variables__variant variant" value="M">M</button>
+              <button id="tshirt-l-variable-button" type="button" name="tshirt-l-variable-button" class="variables__variant variant" value="L">L</button>
             </div>
             <span>Цвет:</span>
             <div class="product-description__variables variables">
-              <button onclick="useWhiteColor()" id="tshirt-white-variable-button" type="button" name="tshirt-white-variable-button" class="variables__variant variant variant_white"></button>
-              <button onclick="useGreenColor()" id="tshirt-green-variable-button" type="button" name="tshirt-green-variable-button" class="variables__variant variant variant_green"></button>
-              <button onclick="useYellowColor()" id="tshirt-yellow-variable-button" type="button" name="tshirt-yellow-variable-button" class="variables__variant variant variant_yellow"></button>
+              <button id="tshirt-white-variable-button" type="button" name="tshirt-white-variable-button" class="variables__variant variant variant_white" value="Белый"></button>
+              <button id="tshirt-green-variable-button" type="button" name="tshirt-green-variable-button" class="variables__variant variant variant_green" value="Зелёный"></button>
+              <button id="tshirt-yellow-variable-button" type="button" name="tshirt-yellow-variable-button" class="variables__variant variant variant_yellow" value="Жёлтый"></button>
             </div>
-            <button class="buy">Купить</button>
+            <button id="submit-form-button" type="submit" class="buy">Купить</button>
             <div class="product-description__postpound-on-later postpound-on-later">
               <img class="heart"src="./img/icons/heart.svg">
               <a class="later" href>Отложить на потом</a>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
