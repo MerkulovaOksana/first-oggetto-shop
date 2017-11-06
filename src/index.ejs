@@ -15,13 +15,13 @@
     <div class="app">
       <div class="app__header header">
 
-      <a href="#"><img class="name-magazin" src="img/the_shop_logo.svg" alt="Shop logo"></a>
-      <a href="http://oggettoweb.ru/" target="_blank"><img class="oggetto-logo" src="img/oggetto_logo.svg" alt="Oggetto logo"></a>
-      <span class="header__contact">+7(812)2*12*85*06</span>
+      <a href="#"><img class="name-shop" src="img/the_shop_logo.svg" alt="Shop logo"></a>
+      <a href="http://oggettoweb.ru/" target="header_blank"><img class="oggetto-logo" src="img/oggetto_logo.svg" alt="Oggetto logo"></a>
+      <div class="header__contact">+7 (812) 2*12*85*06</div>
       </div>
 
       <div class="app__navigation navigation">
-        <div class="app__navigation-link">
+        <div class="navigation_link">
           <%
           pagesList = [
           {
@@ -54,9 +54,9 @@
           <%
           pagesList.forEach(function(item) {
             if (item.isLink == true) { %>
-              <a href="<%= item.link %>" class="navigation_link"><%= item.text %></a>
+              <a href="<%= item.link %>" class="navigation__link"><%= item.text %></a>
               <% } else { %>
-                <span class="navigation_str"><%= item.text %></span>
+                <span class="navigation__str"><%= item.text %></span>
                 <% } %>
                 <% }); %>
         </div>
@@ -64,8 +64,8 @@
         <input id="searchInput" class="app__navigation-search" type="text" placeholder="Поиск">
       </div>
 
-      <div class="app__page page">
-        <div class="page__clothes clothes">
+      <div class="app__menu menu">
+        <div class="menu__clothes clothes">
           <%
           pagesClothes = [
             {
@@ -89,13 +89,13 @@
           <%
           pagesClothes.forEach(function(item) {
             if (item.isLink == true) { %>
-              <a href="<%= item.link %>" class="clothes_link"><%= item.text %></a>
+              <a href="<%= item.link %>" class="clothes__link"><%= item.text %></a>&#8194;/&#8194;
             <% } else { %>
-              <span class="clothes_str"><%= item.text %></span>
+              <span class="clothes__str"><%= item.text %></span>
             <% } %>
           <% }); %>
         </div>
-        <div class="page__product product">
+        <div class="menu__product product">
           <div class="product__photo">
             <img id="tshirt-white" class="photo none" src="./img/tshirts/tshirt_white.jpg" alt="">
             <img id="tshirt-green" class="photo none" src="./img/tshirts/tshirt_green.jpg" alt="">
@@ -111,7 +111,7 @@
               <button id="tshirt-m-variable-button" type="button" name="tshirt-m-variable-button" class="variables__variant variant" value="M">M</button>
               <button id="tshirt-l-variable-button" type="button" name="tshirt-l-variable-button" class="variables__variant variant" value="L">L</button>
             </div>
-            <span>Цвет:</span>
+            <span class="color">Цвет:</span>
             <div class="product-description__variables variables">
               <button id="tshirt-white-variable-button" type="button" name="tshirt-white-variable-button" class="variables__variant variant variant_white" value="Белый"></button>
               <button id="tshirt-green-variable-button" type="button" name="tshirt-green-variable-button" class="variables__variant variant variant_green" value="Зелёный"></button>
@@ -147,7 +147,7 @@
               <%
               serviceMenu.forEach(function(item) {
               %>
-                <a href="#" class="menu_link"><%= item %></a>
+                <a href="#" class="menu__link"><%= item %></a>
               <%
               });
               %>
@@ -171,7 +171,7 @@
               <%
               aboutUsMenu.forEach(function(item) {
               %>
-                <a href="#" class="about_link"><%= item %></a>
+                <a href="#" class="about__link"><%= item %></a>
               <%
               });
               %>
@@ -237,8 +237,8 @@
         </div>
         <hr class="line">
         <div class="footer__copyright copyright">
-          <p>2005-2017 &#169; 7р35рOp.ru-модный интернет-магазин одежды, обуви и аксессуаров.</p>
-          <p>Все права защищены.Доставка по всей России!</p>
+          <span class="copyright_footer">2005-2017 &#169; 7р35рOp.ru-модный интернет-магазин одежды, обуви и аксессуаров.</span>
+          <span class="copyright_footer">Все права защищены.Доставка по всей России!</span>
         </div>
       </div>
     </div>
