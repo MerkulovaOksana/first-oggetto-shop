@@ -7,7 +7,7 @@
 
 html,
 body {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -23,31 +23,35 @@ body {
     font-family: ' Roboto ', sans-serif;
 
     &__header {
-        width: 100%;
+        max-width: 100%;
         flex-grow: 0;
         flex-shrink: 0;
     }
 
     &__navigation {
-        width: 100%;
+        max-width: 100%;
         flex-grow: 0;
         flex-shrink: 0;
     }
 
     &__navigation-search {
         flex-shrink: 0;
-        width: 230px;
+        max-width: 230px;
         height: 30px;
+
+        @media (max-width: 675px) {
+            padding-left: 20px;
+        }
     }
 
     &__page {
         flex-grow: 1;
         flex-shrink: 0;
-        width: 100%;
+        max-width: 100%;
     }
 
     &__footer {
-        width: 100%;
+        max-width: 100%;
         flex-grow: 0;
         flex-shrink: 0;
     }
@@ -72,11 +76,15 @@ body {
         font-weight: bolder;
         color: #c51311;
         font-size: 20px;
+
+        @media (max-width: 556px) {
+            padding-left: 70px;
+        }
     }
 }
 
 .name-shop {
-    width: 90px;
+    max-width: 90px;
     height: 25px;
 }
 
@@ -97,6 +105,10 @@ body {
     &_link {
         flex-shrink: 0;
         margin: 2px;
+
+        @media (max-width: 767px) {
+            padding: 0;
+        }
     }
 
     &__link {
@@ -179,7 +191,7 @@ body {
 
 
 .photo {
-    width: 100%;
+    max-width: 100%;
 }
 
 .oggetto-logo {
