@@ -1,59 +1,6 @@
 window.onload = function()  {
-	var colorWhiteButton = document.getElementById('tshirt-white-variable-button');
-	var colorGreenButton = document.getElementById('tshirt-green-variable-button');
-	var colorYellowButton = document.getElementById('tshirt-yellow-variable-button');
-
-	var sizeSButton = document.getElementById('tshirt-s-variable-button');
-	var sizeMButton = document.getElementById('tshirt-m-variable-button');
-	var sizeLButton = document.getElementById('tshirt-l-variable-button');
-
-	var productForm = document.getElementById('product-form');
-
-	var productTitle = document.getElementById('title-of-product').innerHTML;
-	var productPrice = document.getElementById('price-of-product').innerHTML;
-	var productSize = '';
-	var productColor = '';
-
 	var searchQuery = document.getElementById('searchInput');
-
-
-	useMSize();
-	useWhiteColor ();
-
-
-
-
-
-
-
-	colorWhiteButton.addEventListener( 'click', function () {
-		useWhiteColor ();
-	});
-	colorGreenButton.addEventListener( 'click', function () {
-		useGreenColor ();
-	});
-	colorYellowButton.addEventListener( 'click', function () {
-		useYellowColor ();
-	});
-
-
-
-
-
-	sizeSButton.addEventListener( 'click', function () {
-		useSSize ();
-	});
-	sizeMButton.addEventListener( 'click', function () {
-		useMSize ();
-	});
-	sizeLButton.addEventListener( 'click', function () {
-		useLSize ();
-	});
-
-
-
-
-
+	var productForm = document.getElementById('productForm');
 
 
 	if (searchQuery) {
@@ -65,9 +12,6 @@ window.onload = function()  {
 		});
 	}
 
-
-
-
 	if (productForm) {
 		productForm.addEventListener( 'submit', function (event) {
 			event.preventDefault();
@@ -75,68 +19,67 @@ window.onload = function()  {
 			alert(purchasedProduct);
 		});
 	}
+}
+
+
+let productTitle = document.getElementById('title-of-product').innerHTML;
+let productPrice = document.getElementById('price-of-product').innerHTML;
+let productSize = '';
+let productColor = '';
 
 
 
+const Dispatcher = document.getElementById('doc');
 
+export default class PropertySelector {
+    constructor(el) {
+        this.el = el;
 
-	function useWhiteColor() {
-		productColor = document.getElementById('tshirt-white-variable-button').value;
-		document.getElementById('tshirt-white').classList.remove('none');
-		document.getElementById('tshirt-green').classList.add('none');
-		document.getElementById('tshirt-yellow').classList.add('none');
-		document.getElementById('tshirt-white-variable-button').classList.add('variant_active');
-		document.getElementById('tshirt-green-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-yellow-variable-button').classList.remove('variant_active');
-	}
+        this.el.addEventListener('click', ev => {
+            const type = ev.target.dataset['type'];
+            console.log(type);
+            const value = ev.target.dataset['value'];
+            console.log(value);
 
-	function useGreenColor() {
-		productColor = document.getElementById('tshirt-green-variable-button').value;
-		document.getElementById('tshirt-white').classList.add('none');
-		document.getElementById('tshirt-green').classList.remove('none');
-		document.getElementById('tshirt-yellow').classList.add('none');
-		document.getElementById('tshirt-white-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-green-variable-button').classList.add('variant_active');
-		document.getElementById('tshirt-yellow-variable-button').classList.remove('variant_active');
-	}
+            this.dispatchEvent(type, value)
+        });
+    }
 
-	function useYellowColor() {
-		productColor = document.getElementById('tshirt-yellow-variable-button').value;
-		document.getElementById('tshirt-white').classList.add('none');
-		document.getElementById('tshirt-green').classList.add('none');
-		document.getElementById('tshirt-yellow').classList.remove('none');
-		document.getElementById('tshirt-white-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-green-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-yellow-variable-button').classList.add('variant_active');
-	}
+    dispatchEvent(type, value) {
+        const event = new CustomEvent('property-selected', {
+            detail: {
+                type: type,
+                value: value
+            }
+        });
+        // Pub/Sub
+        Dispatcher.dispatchEvent(event);
+    }
+}
 
 
 
+new PropertySelector(document.getElementById('colorList'));
+new PropertySelector(document.getElementById('sizeList'));
 
+Dispatcher.addEventListener('property-selected', ev => {
+    const data = ev.detail;
 
+    if (data.type === 'color') {
+        productColor = data.value;
+        changePicture(data.value);
+    }
 
+    if (data.type === 'size') {
+        productSize = data.value;
+        // changeSize();
+    }
+});
 
+function changeSize() {
+	document.getElementById('sizeList');
+}
 
-	function useSSize() {
-		productSize = document.getElementById('tshirt-s-variable-button').value;
-		document.getElementById('tshirt-s-variable-button').classList.add('variant_active');
-		document.getElementById('tshirt-m-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-l-variable-button').classList.remove('variant_active');
-	}
-
-	function useMSize() {
-		productSize = document.getElementById('tshirt-m-variable-button').value;
-		document.getElementById('tshirt-s-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-m-variable-button').classList.add('variant_active');
-		document.getElementById('tshirt-l-variable-button').classList.remove('variant_active');
-	}
-
-	function useLSize() {
-		productSize = document.getElementById('tshirt-l-variable-button').value;
-		document.getElementById('tshirt-s-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-m-variable-button').classList.remove('variant_active');
-		document.getElementById('tshirt-l-variable-button').classList.add('variant_active');
-	}
-
-
-};
+function changePicture(color) {
+	document.getElementById('productPicture').src = './img/tshirts/tshirt_' + color + '.jpg';
+}

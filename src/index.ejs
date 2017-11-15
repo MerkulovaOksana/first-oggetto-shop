@@ -9,9 +9,9 @@
     <title>7h3 5h0p</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link  rel="stylesheet" href="css/main.css ">
-    <script src="js/scripts.js"></script>
+    <script type="module" src="js/scripts.js"></script>
   </head>
-  <body>
+  <body id="doc">
     <div class="app">
       <div class="app__header header">
 
@@ -97,25 +97,25 @@
         </div>
         <div class="menu__product product">
           <div class="product__photo">
-            <img id="tshirt-white" class="photo none" src="./img/tshirts/tshirt_white.jpg" alt="">
-            <img id="tshirt-green" class="photo none" src="./img/tshirts/tshirt_green.jpg" alt="">
-            <img id="tshirt-yellow" class="photo none" src="./img/tshirts/tshirt_yellow.jpg" alt="">
+            <img id="productPicture" class="photo" src="./img/tshirts/tshirt_white.jpg" alt="Футболка">
+            <%# <img id="productPicture" class="photo none" src="./img/tshirts/tshirt_green.jpg" alt="">
+            <img id="productPicture" class="photo none" src="./img/tshirts/tshirt_yellow.jpg" alt="">%>
           </div>
-          <form id="product-form" name="product-form" class="product__product-description product-description">
+          <form id="productForm" name="product-form" class="product__product-description product-description js-info" method="get">
             <span id="title-of-product" class="caption">Футболка Alien technology</span>
             <span>Состав: 100% хлопок,динамическая типизация,польская нотация.Производство: Россия</span>
             <span id="price-of-product" class="price">1500P</span>
             <span>Размер:</span>
-            <div class="product-description__variables variables">
-              <button id="tshirt-s-variable-button" type="button" name="tshirt-s-variable-button" class="variables__variant variant" value="S">S</button>
-              <button id="tshirt-m-variable-button" type="button" name="tshirt-m-variable-button" class="variables__variant variant" value="M">M</button>
-              <button id="tshirt-l-variable-button" type="button" name="tshirt-l-variable-button" class="variables__variant variant" value="L">L</button>
+            <div id="sizeList" class="product-description__variables variables">
+              <div class="variables__variant variant js-sizeProduct" data-type="size" data-value="s">S</div>
+              <div class="variables__variant variant js-sizeProduct" data-type="size" data-value="m">M</div>
+              <div class="variables__variant variant js-sizeProduct" data-type="size" data-value="l">L</div>
             </div>
-            <span class="color">Цвет:</span>
-            <div class="product-description__variables variables">
-              <button id="tshirt-white-variable-button" type="button" name="tshirt-white-variable-button" class="variables__variant variant variant_white" value="Белый"></button>
-              <button id="tshirt-green-variable-button" type="button" name="tshirt-green-variable-button" class="variables__variant variant variant_green" value="Зелёный"></button>
-              <button id="tshirt-yellow-variable-button" type="button" name="tshirt-yellow-variable-button" class="variables__variant variant variant_yellow" value="Жёлтый"></button>
+            <span>Цвет:</span>
+            <div id="colorList" class="product-description__variables variables">
+              <div class="variables__variant variant variant_white js-color" data-type="color" data-value="white"></div>
+              <div class="variables__variant variant variant_green js-color" data-type="color" data-value="green"></div>
+              <div class="variables__variant variant variant_yellow js-color" data-type="color" data-value="yellow"></div>
             </div>
             <button id="submit-form-button" type="submit" class="buy">Купить</button>
             <div class="product-description__postpound-on-later postpound-on-later">
