@@ -16,13 +16,16 @@
     "eslint": "^3.19.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-ejs": "^3.0.1",
+    "gulp-imagemin": "^3.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.8",
+    "imagemin": "^5.3.1",
     "stylelint": "^7.13.0"
   },
   "dependencies": {
     "ejs": "^2.5.7",
     "gulp": "^3.9.1",
+    "gulp-if": "^2.0.2",
     "gulp-less": "^3.3.0",
     "gulp-sourcemaps": "^2.6.1",
     "install": "^0.10.1",
