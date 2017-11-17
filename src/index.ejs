@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="initial-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7h3 5h0p</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link  rel="stylesheet" href="css/main.css ">
+    <script type="module" src="js/scripts.js"></script>
+  </head>
+  <body id="doc">
+    <div class="app">
+      <div class="app__header header">
+
+      <a href="#"><img class="name-shop" src="img/the_shop_logo.svg" alt="Shop logo"></a>
+      <a href="http://oggettoweb.ru/" target="header_blank"><img class="oggetto-logo" src="img/oggetto_logo.svg" alt="Oggetto logo"></a>
+      <div class="header__contact">+7 (812) 2*12*85*06</div>
+      </div>
+
+      <div class="app__navigation navigation">
+        <div class="navigation_link">
+          <%
+          pagesList = [
+          {
+            'isLink': false,
+            'text': 'LISP'
+          },
+          {
+            'isLink': true,
+            'text': 'OCaml',
+            'link' : '#'
+          },
+          {
+            'isLink': true,
+            'text': 'JavaScript',
+            'link' : '#'
+          },
+          {
+            'isLink': true,
+            'text': 'Python',
+            'link' : '#'
+          },
+          {
+            'isLink': true,
+            'text': 'PHP',
+            'link' : '#'
+          }
+          ]
+          %>
+
+          <%
+          pagesList.forEach(function(item) {
+            if (item.isLink == true) { %>
+              <a href="<%= item.link %>" class="navigation__link"><%= item.text %></a>
+              <% } else { %>
+                <span class="navigation__str"><%= item.text %></span>
+                <% } %>
+                <% }); %>
+        </div>
+
+        <input id="searchInput" class="app__navigation-search" type="text" placeholder="Поиск">
+      </div>
+
+      <div class="app__menu menu">
+        <div class="menu__clothes clothes">
+          <%
+          pagesClothes = [
+            {
+              'isLink': true,
+              'text': 'LISP',
+              'link' : '#'
+            },
+            {
+              'isLink': true,
+              'text': 'Одежда',
+              'link' : '#'
+            },
+            {
+              'isLink': false,
+              'text': 'Футболки'
+
+            }
+          ]
+          %>
+
+          <%
+          pagesClothes.forEach(function(item) {
+            if (item.isLink == true) { %>
+              <a href="<%= item.link %>" class="clothes__link"><%= item.text %></a>&#8194;/&#8194;
+            <% } else { %>
+              <span class="clothes__str"><%= item.text %></span>
+            <% } %>
+          <% }); %>
+        </div>
+        <div class="menu__product product">
+          <div class="product__photo">
+            <img id="productPicture" class="photo" src="./img/tshirts/tshirt_white.jpg" alt="Футболка">
+          </div>
+          <form id="productForm" name="product-form" class="product__product-description product-description js-info" method="get">
+            <span id="title-of-product" class="caption">Футболка Alien technology</span>
+            <span>Состав: 100% хлопок,динамическая типизация,польская нотация.Производство: Россия</span>
+            <span id="price-of-product" class="price">1500P</span>
+            <span>Размер:</span>
+            <div id="sizeList" class="product-description__variables variables">
+              <div class="variables__variant variant js-sizeProduct" data-type="size" data-value="s">S</div>
+              <div class="variables__variant variant js-sizeProduct" data-type="size" data-value="m">M</div>
+              <div class="variables__variant variant js-sizeProduct" data-type="size" data-value="l">L</div>
+            </div>
+            <span>Цвет:</span>
+            <div id="colorList" class="product-description__variables variables">
+              <div class="variables__variant variant variant_white js-color" data-type="color" data-value="white"></div>
+              <div class="variables__variant variant variant_green js-color" data-type="color" data-value="green"></div>
+              <div class="variables__variant variant variant_yellow js-color" data-type="color" data-value="yellow"></div>
+            </div>
+            <button id="submit-form-button" type="submit" class="buy">Купить</button>
+            <div class="product-description__postpound-on-later postpound-on-later">
+              <img class="heart" src="./img/icons/heart.svg" alt="">
+              <a class="later" href="#">Отложить на потом</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="app__footer footer">
+        <div class="footer__navigation-menu navigation-menu">
+          <div class="navigation-menu__service service">
+            <span class=" service__caption caption_small">Сервис и поддержка</span>
+            <div class="service__row row">
+              <%
+              const serviceMenu = [
+                'Как сделать заказ',
+                'Возврат товара',
+                'Публичная оферта',
+                'Доставка',
+                'Способы оплаты',
+                'Правила продажи',
+                'Возврат денежных средств',
+                'Вопросы и ответы'
+              ]
+              %>
+
+              <%
+              serviceMenu.forEach(function(item) {
+              %>
+                <a href="#" class="menu__link"><%= item %></a>
+              <%
+              });
+              %>
+            </div>
+          </div>
+          <div class="navigation-menu__service service">
+            <span class=" service__caption caption_small">О компании</span>
+            <div class="service__row row">
+              <%
+              const aboutUsMenu = [
+                'О нас',
+                'Контакты',
+                'Вакансии',
+                'Партнерам',
+                'Сертификаты',
+                'Преимущества',
+                'Наши скидки'
+              ]
+              %>
+
+              <%
+              aboutUsMenu.forEach(function(item) {
+              %>
+                <a href="#" class="about__link"><%= item %></a>
+              <%
+              });
+              %>
+            </div>
+            </div>
+          <div class="navigation-menu__service service">
+            <%
+            const plusesOfCompany = [
+              {
+                'text': 'Бесплатная доставка от 4000Р',
+                'img': './img/icons/delivery.svg'
+              },
+              {
+                'text': 'Пробники в подарок при каждой покупке',
+                'img': './img/icons/heart.svg'
+              },
+              {
+                'text': 'Акции и подарки за покупку',
+                'img': './img/icons/cup.svg'
+              }
+            ]
+            %>
+
+            <%
+            plusesOfCompany.forEach(function(item) {
+            %>
+              <div class="pluses-of-the-company">
+                <img class="footer_icon" alt="" src="<%= item.img %>">
+                <span><%= item.text %></span>
+              </div>
+            <%
+            });
+            %>
+          </div>
+          <div class="navigation-menu__social-networks social-networks">
+            <%
+            const socialNetworks = [
+              {
+                'url': '#',
+                'img': './img/icons/facebook.svg'
+              },
+              {
+                'url': '#',
+                'img': './img/icons/twitter.svg'
+              },
+              {
+                'url': '#',
+                'img': './img/icons/instagram.svg'
+              }
+            ]
+            %>
+
+            <%
+            socialNetworks.forEach(function(item) {
+            %>
+              <a href="<%= item.url %>" class="a-social">
+                <img class="social_link" alt="" src="<%= item.img %>">
+              </a>
+            <%
+            });
+            %>
+          </div>
+        </div>
+        <hr class="line">
+        <div class="footer__copyright copyright">
+          <span class="copyright_footer">2005-2017 &#169; 7р35рOp.ru-модный интернет-магазин одежды, обуви и аксессуаров.</span>
+          <span class="copyright_footer">Все права защищены.Доставка по всей России!</span>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
