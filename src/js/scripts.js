@@ -66,11 +66,13 @@ Dispatcher.addEventListener('property-selected', ev => {
     const data = ev.detail;
 
     if (data.type === 'color') {
+        localStorage.setItem(data.type, data.value);
         productColor = data.value;
         changePicture(data.value);
     }
 
     if (data.type === 'size') {
+        localStorage.setItem(data.type, data.value);
         productSize = data.value;
         // changeSize();
     }
@@ -82,4 +84,13 @@ function changeSize() {
 
 function changePicture(color) {
 	document.getElementById('productPicture').src = './img/tshirts/tshirt_' + color + '.jpg';
+}
+
+const lastSize = localStorage.getItem('size');
+const lastColor = localStorage.getItem('color');
+  if (lastSize) {
+    changeSize(lastSize);
+  }
+  if (lastColor) {
+     changePicture(lastColor);
 }
