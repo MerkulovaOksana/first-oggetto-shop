@@ -1,6 +1,10 @@
 window.onload = function()  {
 	var searchQuery = document.getElementById('searchInput');
 	var productForm = document.getElementById('productForm');
+  const colorList = document.getElementById('colorList');
+  const sizeList = document.getElementById('sizeList');
+
+
 
 
 	if (searchQuery) {
@@ -15,8 +19,15 @@ window.onload = function()  {
 	if (productForm) {
 		productForm.addEventListener( 'submit', function (event) {
 			event.preventDefault();
-			var purchasedProduct = productTitle + '\nЦена: ' + productPrice + '\nРазмер: ' + productSize + '\nЦвет: ' + productColor;
-			alert(purchasedProduct);
+      if (window.localStorage.size && window.localStorage.color) {
+        alert(productTitle + '\nЦена: ' + productPrice + '\nРазмер: ' + window.localStorage.size + '\nЦвет: ' + window.localStorage.color);
+      } else if(window.localStorage.size && !window.localStorage.color) {
+        alert("Выберите цвет");
+      } else if(!window.localStorage.size && window.localStorage.color) {
+        alert("Выберите размер");
+      } else {
+        alert("Выберите цвет и размер");
+      }
 		});
 	}
 }
@@ -37,9 +48,7 @@ export default class PropertySelector {
 
         this.el.addEventListener('click', ev => {
             const type = ev.target.dataset['type'];
-            console.log(type);
             const value = ev.target.dataset['value'];
-            console.log(value);
 
             this.dispatchEvent(type, value)
         });
@@ -74,16 +83,36 @@ Dispatcher.addEventListener('property-selected', ev => {
     if (data.type === 'size') {
         localStorage.setItem(data.type, data.value);
         productSize = data.value;
-        // changeSize();
+        changeSize(data.value);
     }
 });
 
-function changeSize() {
-	document.getElementById('sizeList');
+function changeSize(size) {
+	var sizeList = document.getElementById('sizeList').querySelectorAll('[data-value]');
+
+  for (var i = 0; i < sizeList.length; i++) {
+    var tag = sizeList[i];
+    if (tag.getAttribute('data-value') == size) {
+      tag.classList.add('variant_active');
+    } else {
+      tag.classList.remove('variant_active');
+    }
+  }
 }
 
 function changePicture(color) {
-	document.getElementById('productPicture').src = './img/tshirts/tshirt_' + color + '.jpg';
+  var colorList = document.getElementById('colorList').querySelectorAll('[data-value]');
+
+  for (var i = 0; i < colorList.length; i++) {
+    var tag = colorList[i];
+    if (tag.getAttribute('data-value') == color) {
+      tag.classList.add('variant_active');
+    } else {
+      tag.classList.remove('variant_active');
+    }
+  }
+
+  document.getElementById('productPicture').src = './img/tshirts/tshirt_' + color + '.jpg';
 }
 
 const lastSize = localStorage.getItem('size');

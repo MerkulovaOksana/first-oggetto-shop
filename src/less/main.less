@@ -293,12 +293,13 @@ body {
     font-weight: bold;
     text-decoration: none;
 
-    &_yellow {
-        background-color: #e3d95e;
+    &:first-of-type {
+        margin-left: 0;
     }
 
-    &_green {
-        background-color: #a5af96;
+    &:hover {
+        cursor: pointer;
+        border: 2px solid red;
     }
 
     &_white {
@@ -308,14 +309,14 @@ body {
     &_active {
         border: 2px solid red;
     }
-}
 
-.variant:hover {
-    border: 2px solid red;
-}
+    &_yellow {
+        background-color: #e3d95e;
+    }
 
-.variant:first-of-type {
-    margin-left: 0;
+    &_green {
+        background-color: #a5af96;
+    }
 }
 
 .caption {
@@ -343,6 +344,10 @@ body {
     font-size: 24px;
     margin-top: 16px;
     color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 //
 .postpound-on-later {
